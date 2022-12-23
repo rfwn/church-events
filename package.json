@@ -1,0 +1,37 @@
+{
+    "name": "church-events",
+    "version": "6.6.6",
+    "description": "no",
+    "main": "dist/index.js",
+    "repository": "https://github.com/rfwn/church-events.git",
+    "author": "rfwn࿐ <m.erfan.majidi@Gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "build": "npm-run-all clean tsc",
+        "clean": "rimraf dist",
+        "nodemon": "nodemon --watch dist",
+        "start": "node dist/index.js",
+        "dev": "npm-run-all build start",
+        "test": "",
+        "tsc": "tsc",
+        "tsc:watch": "tsc --watch"
+    },
+    "dependencies": {
+        "discord.js": "^14.7.1",
+        "pouchdb": "^8.0.0",
+        "tslog": "^4.6.0"
+    },
+    "devDependencies": {
+        "@types/pouchdb": "^6.4.0",
+        "@typescript-eslint/eslint-plugin": "^5.47.0",
+        "@typescript-eslint/parser": "^5.47.0",
+        "dotenv": "^16.0.3",
+        "eslint": "^8.30.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "prettier": "^2.8.1",
+        "rimraf": "^3.0.2",
+        "typescript": "^4.9.4"
+    }
+}
