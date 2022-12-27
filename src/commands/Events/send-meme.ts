@@ -42,7 +42,10 @@ export default class MemeCommand extends Command {
                 userId: interaction.user.id,
                 url: memeAttachment.url,
                 messageId: message.id,
-                votes: [],
+                votes: {
+                    based: 0,
+                    cringe: 0,
+                },
             });
             await doc.save();
             const channel = await this.client.channels.fetch(message.channel_id);

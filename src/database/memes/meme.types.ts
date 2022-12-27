@@ -3,12 +3,10 @@ export interface IMeme {
     userId: String;
     url: String;
     messageId: String;
-    votes: [
-        {
-            voteType: String;
-            voterId: String;
-        },
-    ];
+    votes: {
+        based: Number;
+        cringe: Number;
+    };
 }
 export interface IMemeDocument extends IMeme, Document {}
 export type IMemeModel = Model<IMemeDocument>;

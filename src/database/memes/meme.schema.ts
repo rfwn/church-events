@@ -3,11 +3,9 @@ const MemerSchema = new Schema({
     userId: String,
     url: String,
     messageId: String,
-    votes: [
-        {
-            voteType: String,
-            voterId: String,
-        },
-    ],
+    votes: {
+        cringe: Number,
+        based: Number,
+    },
 });
 export default MemerSchema;
