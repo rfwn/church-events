@@ -7,7 +7,7 @@ import Event from './Event';
 import Command from './Command';
 import CommandRegistry from '../registry/CommandRegistry';
 import ContextMenuRegistry from '../registry/ContextMenuRegistry';
-import Database from '../database/init';
+import init from '../database/init';
 
 class Valence extends Client {
     public readonly config: {
@@ -15,6 +15,9 @@ class Valence extends Client {
         clientId: string | undefined;
         ownerId: string | undefined;
         serverId: string | undefined;
+        memesWhId: string | undefined;
+        memesWhToken: string | undefined;
+        mongoUrl: string | undefined;
         debug: boolean;
     };
     public readonly eventRegistry: EventRegistry;
@@ -23,7 +26,7 @@ class Valence extends Client {
     public events: Map<string, Event>;
     public commands: Map<string, Command>;
     public contexts: Map<string, Command>;
-    public readonly database: PouchDB.Database<{}>;
+    public readonly database: typeof init;
     public readonly logger: typeof Logger;
     public readonly webhookManager: WebhookService;
     constructor() {
@@ -59,7 +62,7 @@ class Valence extends Client {
                 activities: [
                     {
                         // eslint-disable-next-line prettier/prettier
-                        name: 'saifoc\'s bank account',
+                        name: 'cringe memes',
                         type: ActivityType.Watching,
                     },
                 ],
@@ -74,7 +77,7 @@ class Valence extends Client {
         });
         this.config = config;
         this.logger = Logger;
-        this.database = new Database(this).repo;
+        this.database = init;
         this.webhookManager = new WebhookService(this);
         this.events = new Map();
         this.eventRegistry = new EventRegistry(this);

@@ -1,4 +1,4 @@
-import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
+import { ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
 import Client from '../../structures/Client';
 import Command from '../../structures/Command';
 export default class PingCommand extends Command {
@@ -6,7 +6,7 @@ export default class PingCommand extends Command {
         super(new SlashCommandBuilder().setName('ping').setDescription('Shows ping'), client, {});
     }
 
-    override async run(interaction: CommandInteraction) {
+    override async run(interaction: ChatInputCommandInteraction) {
         const m = await interaction.channel!.send('.');
         const messageTimestamp = m.createdTimestamp;
         m.delete();
