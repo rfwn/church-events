@@ -20,7 +20,6 @@ export default class MemeCommand extends Command {
         const memeAttachment = interaction.options.getAttachment('meme');
         await interaction.deferReply();
         const userMemes = await Meme.find({ userId: interaction.user.id });
-
         if (userMemes.length >= 3) {
             return interaction.editReply({ content: 'You have sent too much memes.' });
         }
@@ -52,8 +51,8 @@ export default class MemeCommand extends Command {
             interaction.editReply(`Sent your cringe meme into <#${message.channel_id}>`);
             if (channel instanceof TextChannel) {
                 const m = channel.messages.cache.get(message.id);
-                await m?.react('😂');
-                await m?.react('🤮');
+                await m?.react('786237803511808051');
+                await m?.react('860167700947664896');
             }
         } catch (err) {
             interaction.editReply('Someting went wrong');
