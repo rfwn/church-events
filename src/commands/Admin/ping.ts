@@ -14,6 +14,11 @@ export default class PingCommand extends Command {
             .addFields(
                 { name: '🏓 Ping', value: `> \`${messageTimestamp - interaction.createdTimestamp}ms\``, inline: true },
                 { name: '⌛ API Latency', value: `> \`${Math.round(this.client.ws.ping)}ms\``, inline: true },
+                {
+                    name: '📂 Database Ping',
+                    value: `> \`${Math.round(await this.client.database.ping())}ms\``,
+                    inline: true,
+                },
             )
             .setTimestamp();
         await interaction.reply({ embeds: [embed] });

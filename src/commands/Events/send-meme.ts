@@ -47,6 +47,7 @@ export default class MemeCommand extends Command {
                 },
             });
             await doc.save();
+            console.log(doc);
             const channel = await this.client.channels.fetch(message.channel_id);
             interaction.editReply(`Sent your cringe meme into <#${message.channel_id}>`);
             if (channel instanceof TextChannel) {
@@ -56,6 +57,7 @@ export default class MemeCommand extends Command {
             }
         } catch (err) {
             interaction.editReply('Someting went wrong');
+            console.log(err);
         }
     }
 }
